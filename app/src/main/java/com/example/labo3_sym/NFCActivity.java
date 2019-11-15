@@ -1,17 +1,26 @@
 package com.example.labo3_sym;
 
 import android.Manifest;
+<<<<<<< HEAD
 import android.app.Activity;
 import android.app.PendingIntent;
 import android.content.Intent;
 import android.content.IntentFilter;
+=======
+import android.content.Intent;
+>>>>>>> b3948fd91fd8586c2a1adfbf29cd3402cc705bbf
 import android.content.pm.PackageManager;
 import android.nfc.NfcAdapter;
 import android.nfc.Tag;
 import android.nfc.tech.Ndef;
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.text.method.ScrollingMovementMethod;
+<<<<<<< HEAD
 import android.util.Log;
+=======
+import android.widget.Button;
+>>>>>>> b3948fd91fd8586c2a1adfbf29cd3402cc705bbf
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -25,16 +34,26 @@ import com.example.labo3_sym.R;
 
 public class NFCActivity extends AppCompatActivity {
 
+
     public static final String MIME_TEXT_PLAIN = "text/plain";
     public static final String TAG = "test";
-    public String 
 
     private NfcAdapter mNfcAdapter;
+    private Button btn_login = null;
+
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_nfc);
 
+        this.btn_login = findViewById(R.id.btn_login);
+
+        btn_login.setOnClickListener((v) -> {
+            Intent intent = new Intent(NFCActivity.this, NFC_AFTER_LOGIN_ACTIVITY.class);
+            startActivity(intent);
+        });
+
+        /* Lorsque l'on clique sur un des boutons, lance l'activité correspondante */
 
         mNfcAdapter = NfcAdapter.getDefaultAdapter(this);
 
@@ -142,5 +161,8 @@ public class NFCActivity extends AppCompatActivity {
 
     public static void stopForegroundDispatch(final Activity activity, NfcAdapter adapter) {
         adapter.disableForegroundDispatch(activity);
+
+
+
     }
 }
