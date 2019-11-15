@@ -24,6 +24,10 @@
             android:name="com.example.labo3_sym.NFCActivity"
             android:label="NFC" >
         </activity>
+        <activity
+            android:name="com.example.labo3_sym.NFC_AFTER_LOGIN_ACTIVITY"
+            android:label="NFC_AFTER_LOGIN" >
+        </activity>
     </application>
 
 </manifest>
