@@ -1,33 +1,18 @@
 package com.example.labo3_sym;
 
-import android.Manifest;
-<<<<<<< HEAD
 import android.app.Activity;
 import android.app.PendingIntent;
 import android.content.Intent;
 import android.content.IntentFilter;
-=======
-import android.content.Intent;
->>>>>>> b3948fd91fd8586c2a1adfbf29cd3402cc705bbf
-import android.content.pm.PackageManager;
 import android.nfc.NfcAdapter;
 import android.nfc.Tag;
 import android.nfc.tech.Ndef;
 import android.os.Bundle;
-import android.os.StrictMode;
-import android.text.method.ScrollingMovementMethod;
-<<<<<<< HEAD
 import android.util.Log;
-=======
 import android.widget.Button;
->>>>>>> b3948fd91fd8586c2a1adfbf29cd3402cc705bbf
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.ContextCompat;
-
-import com.example.labo3_sym.R;
 
 //import com.karumi.dexter.Dexter;
 //import com.karumi.dexter.listener.single.BasePermissionListener;
@@ -115,7 +100,7 @@ public class NFCActivity extends AppCompatActivity {
             if (MIME_TEXT_PLAIN.equals(type)) {
 
                 Tag tag = intent.getParcelableExtra(NfcAdapter.EXTRA_TAG);
-                new NdefReaderTask().execute(tag);
+                new NdefReaderTask(this).execute(tag);
 
             } else {
                 Log.d(TAG, "Wrong mime type: " + type);
@@ -129,7 +114,7 @@ public class NFCActivity extends AppCompatActivity {
 
             for (String tech : techList) {
                 if (searchedTech.equals(tech)) {
-                    new NdefReaderTask().execute(tag);
+                    new NdefReaderTask(this).execute(tag);
                     break;
                 }
             }
