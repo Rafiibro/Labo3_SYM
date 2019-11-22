@@ -84,6 +84,7 @@ class NdefReaderTask extends AsyncTask<Tag, Void, String> {
     protected void onPostExecute(String result) {
         if (result != null) {
             Log.i("NFC", "Read content: " + result);
+            parent.countDown();
         }
     }
 }
