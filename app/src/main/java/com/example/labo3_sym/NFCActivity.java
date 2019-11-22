@@ -52,7 +52,7 @@ public class NFCActivity extends AppCompatActivity {
                 if(!(et_email.getText().toString().equals("") || et_password.getText().toString().equals(""))) {
                     if(email.equals(et_email.getText().toString()) && password.equals(et_password.getText().toString())) {
 
-                        Intent intent = new Intent(NFCActivity.this, NFC_AFTER_LOGIN_ACTIVITY.class);
+                        Intent intent = new Intent(NFCActivity.this, NFCAfterLoginActivity.class);
                         startActivity(intent);
                     }else{
 

@@ -7,7 +7,7 @@
 
 
     <Button
-        android:id="@+id/btn"
+        android:id="@+id/btn_lecture"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
@@ -17,7 +17,7 @@
         android:text="@string/USE"/>
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/text_codes_barres"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
