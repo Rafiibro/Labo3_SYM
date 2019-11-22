@@ -6,6 +6,7 @@
     <uses-feature
         android:name="android.hardware.nfc"
         android:required="true" />
+    <uses-permission android:name="android.permission.CAMERA" />
 
     <application
         android:allowBackup="true"
@@ -37,7 +38,11 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.example.labo3_sym.NFC_AFTER_LOGIN_ACTIVITY"
+            android:name="com.example.labo3_sym.ScanActivity"
+            android:label="scan" >
+        </activity>
+        <activity
+            android:name="com.example.labo3_sym.NFCAfterLoginActivity"
             android:label="NFC_AFTER_LOGIN" >
         </activity>
     </application>

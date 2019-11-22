@@ -34,7 +34,7 @@ public class NFCActivity extends AppCompatActivity {
         this.btn_login = findViewById(R.id.btn_login);
 
         btn_login.setOnClickListener((v) -> {
-            Intent intent = new Intent(NFCActivity.this, NFC_AFTER_LOGIN_ACTIVITY.class);
+            Intent intent = new Intent(NFCActivity.this, NFCAfterLoginActivity.class);
             startActivity(intent);
         });
 
