@@ -27,8 +27,8 @@ public class MainActivity extends AppCompatActivity {
         StrictMode.setThreadPolicy(policy);
 
         /* Initialisation des boutons */
-        this.btn_codes_barres = findViewById(R.id.button2);
-        this.btn_nfc = findViewById(R.id.button3);
+        this.btn_codes_barres = findViewById(R.id.btn_codes_barres);
+        this.btn_nfc = findViewById(R.id.button_nfc);
 
         /* Lorsque l'on clique sur un des boutons, lance l'activité correspondante */
 

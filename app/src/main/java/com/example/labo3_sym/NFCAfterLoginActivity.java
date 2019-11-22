@@ -1,25 +1,18 @@
 package com.example.labo3_sym;
 
-import android.Manifest;
-import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.StrictMode;
-import android.text.method.ScrollingMovementMethod;
 import android.widget.Button;
-import android.widget.TextView;
+
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.ContextCompat;
-
-import com.example.labo3_sym.R;
 
 //import com.karumi.dexter.Dexter;
 //import com.karumi.dexter.listener.single.BasePermissionListener;
 
-public class NFC_AFTER_LOGIN_ACTIVITY extends AppCompatActivity {
+public class NFCAfterLoginActivity extends AppCompatActivity {
 
     private Button btn_max_priority = null;
     private Button btn_medium_priority = null;
@@ -38,7 +31,7 @@ public class NFC_AFTER_LOGIN_ACTIVITY extends AppCompatActivity {
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_nfc_after_login);
+        setContentView(R.layout.activity_nfcafterlogin);
 
 
         /* Indique la policy des threads */
@@ -46,9 +39,9 @@ public class NFC_AFTER_LOGIN_ACTIVITY extends AppCompatActivity {
         StrictMode.setThreadPolicy(policy);
 
         /* Initialisation des boutons */
-        this.btn_max_priority = findViewById(R.id.bouton_after_login_1);
-        this.btn_medium_priority = findViewById(R.id.bouton_after_login_2);
-        this.btn_min_priority = findViewById(R.id.bouton_after_login_3);
+        this.btn_max_priority = findViewById(R.id.btn_max_security);
+        this.btn_medium_priority = findViewById(R.id.btn_medium_security);
+        this.btn_min_priority = findViewById(R.id.btn_min_security);
 
         prio_value = 60;
         max_prio = true;
