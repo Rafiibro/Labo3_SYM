@@ -3,6 +3,7 @@ package com.example.labo3_sym;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.StrictMode;
+import android.util.Log;
 import android.widget.Button;
 
 import android.widget.Toast;
@@ -24,9 +25,9 @@ public class NFCAfterLoginActivity extends AppCompatActivity {
     private boolean medium_prio = true;
     private boolean min_prio = true;
 
-    private static final int MAX_PRIO = 40;
-    private static final int MEDIUM_PRIO = 20;
-    private static final int MIN_PRIO = 10;
+    private static final int MAX_PRIO = 50;
+    private static final int MEDIUM_PRIO = 40;
+    private static final int MIN_PRIO = 20;
 
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,11 +51,13 @@ public class NFCAfterLoginActivity extends AppCompatActivity {
 
         new CountDownTimer(60000, 1000) {
             public void onTick(long millisUntilFinished) {
-                if(prio_value <= MAX_PRIO){
+                if(prio_value < MAX_PRIO){
                     max_prio = false;
-                } else if(prio_value <= MEDIUM_PRIO){
+                }
+                if(prio_value < MEDIUM_PRIO){
                     medium_prio = false;
-                } else if(prio_value <= MIN_PRIO){
+                }
+                if(prio_value < MIN_PRIO){
                     min_prio = false;
                 }
                 prio_value--;
