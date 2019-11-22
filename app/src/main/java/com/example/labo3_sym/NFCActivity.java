@@ -14,9 +14,6 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-//import com.karumi.dexter.Dexter;
-//import com.karumi.dexter.listener.single.BasePermissionListener;
-
 public class NFCActivity extends AppCompatActivity {
 
 

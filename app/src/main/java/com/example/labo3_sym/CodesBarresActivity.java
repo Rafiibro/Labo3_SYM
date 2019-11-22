@@ -1,33 +1,22 @@
 package com.example.labo3_sym;
 
-        import android.Manifest;
-        import android.content.Intent;
-        import android.content.pm.PackageManager;
-        import android.os.Build;
-        import android.os.Bundle;
-        import android.os.StrictMode;
-        import android.text.method.ScrollingMovementMethod;
-        import android.widget.Button;
-        import android.widget.TextView;
-        import android.view.View;
-
-
-        import androidx.annotation.RequiresApi;
-        import androidx.appcompat.app.AppCompatActivity;
-        import androidx.core.content.ContextCompat;
-
-        import com.example.labo3_sym.R;
-        import com.google.zxing.integration.android.IntentIntegrator;
-
-//import com.karumi.dexter.Dexter;
-//import com.karumi.dexter.listener.single.BasePermissionListener;
+import android.Manifest;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.os.Build;
+import android.os.Bundle;
+import android.os.StrictMode;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
+import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AppCompatActivity;
 
 public class CodesBarresActivity extends AppCompatActivity {
 
     private Button btn_lecture = null;
     public static TextView result;
     private static final int MY_CAMERA_REQUEST_CODE = 100;
-
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
