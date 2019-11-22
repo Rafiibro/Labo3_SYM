@@ -1,14 +1,10 @@
 package com.example.labo3_sym;
 
-import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.widget.Button;
-
-import com.example.labo3_sym.R;
-import com.example.labo3_sym.CodesBarresActivity;
-import com.example.labo3_sym.NFCActivity;
+import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
 

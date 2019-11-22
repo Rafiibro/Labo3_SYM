@@ -1,24 +1,7 @@
 package com.example.labo3_sym;
-import android.Manifest;
-import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.os.Bundle;
-import android.os.StrictMode;
-import android.text.method.ScrollingMovementMethod;
-import android.widget.Button;
-import android.widget.TextView;
-import android.view.View;
-
-
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.ContextCompat;
-
-import com.example.labo3_sym.R;
-import com.google.zxing.integration.android.IntentIntegrator;
-import android.os.Bundle;
-import android.util.Log;
 import com.google.zxing.Result;
-
 import me.dm7.barcodescanner.zxing.ZXingScannerView;
 
 public class ScanActivity extends AppCompatActivity implements ZXingScannerView.ResultHandler{
@@ -47,14 +30,7 @@ public class ScanActivity extends AppCompatActivity implements ZXingScannerView.
 
     @Override
     public void handleResult(Result rawResult) {
-        // Do something with the result here
-        // Log.v("tag", rawResult.getText()); // Prints scan results
-        // Log.v("tag", rawResult.getBarcodeFormat().toString()); // Prints the scan format (qrcode, pdf417 etc.)
-
         CodesBarresActivity.result.setText(rawResult.getText());
         onBackPressed();
-
-        // If you would like to resume scanning, call this method below:
-        //mScannerView.resumeCameraPreview(this);
     }
 }

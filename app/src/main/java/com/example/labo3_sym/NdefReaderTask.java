@@ -1,17 +1,13 @@
 package com.example.labo3_sym;
 
-import android.app.Activity;
 import android.nfc.NdefMessage;
 import android.nfc.NdefRecord;
 import android.nfc.Tag;
 import android.nfc.tech.Ndef;
 import android.os.AsyncTask;
 import android.util.Log;
-
 import java.io.UnsupportedEncodingException;
 import java.util.Arrays;
-
-import static com.example.labo3_sym.NFCActivity.TAG;
 
 /**
  * Background task for reading the data. Do not block the UI thread while reading.
