@@ -9,10 +9,11 @@ import android.os.StrictMode;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
-public class CodesBarresActivity extends AppCompatActivity {
+public class CodesBarresActivity extends AppCompatActivity{
 
     private Button btn_lecture = null;
     public static TextView result;
@@ -42,5 +43,6 @@ public class CodesBarresActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
     }
 }

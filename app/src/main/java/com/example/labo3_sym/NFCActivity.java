@@ -48,7 +48,11 @@ public class NFCActivity extends AppCompatActivity {
 
                 if(!(et_email.getText().toString().equals("") || et_password.getText().toString().equals(""))) {
                     if(email.equals(et_email.getText().toString()) && password.equals(et_password.getText().toString())) {
-
+                        cdt.cancel();
+                        cdt = null;
+                        connectionValid = false;
+                        et_email.setText("");
+                        et_password.setText("");
                         Intent intent = new Intent(NFCActivity.this, NFCAfterLoginActivity.class);
                         startActivity(intent);
                     }else{
@@ -125,7 +129,6 @@ public class NFCActivity extends AppCompatActivity {
 
             cdt.cancel();
             cdt = null;
-
         }
         Toast.makeText(NFCActivity.this, "NFC détecté", Toast.LENGTH_LONG).show();
         cdt = new CountDownTimer(30000, 1000) {
