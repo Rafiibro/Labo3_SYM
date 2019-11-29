@@ -8,14 +8,13 @@ import android.nfc.NfcAdapter;
 import android.nfc.Tag;
 import android.nfc.tech.Ndef;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.util.Log;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-
-//import com.karumi.dexter.Dexter;
-//import com.karumi.dexter.listener.single.BasePermissionListener;
 
 public class NFCActivity extends AppCompatActivity {
 
@@ -23,8 +22,16 @@ public class NFCActivity extends AppCompatActivity {
     public static final String MIME_TEXT_PLAIN = "text/plain";
     public static final String TAG = "test";
 
+    private String password = "1234";
+    private String email = "bob@a.ch";
+
+    private  CountDownTimer cdt = null;
+
     private NfcAdapter mNfcAdapter;
     private Button btn_login = null;
+    private EditText et_password = null;
+    private EditText et_email = null;
+    private boolean connectionValid = false;
 
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,10 +39,33 @@ public class NFCActivity extends AppCompatActivity {
         setContentView(R.layout.activity_nfc);
 
         this.btn_login = findViewById(R.id.btn_login);
+        this.et_password = findViewById(R.id.et_password);
+        this.et_email = findViewById(R.id.et_email);
 
         btn_login.setOnClickListener((v) -> {
-            Intent intent = new Intent(NFCActivity.this, NFCAfterLoginActivity.class);
-            startActivity(intent);
+
+            if(connectionValid) {
+
+                if(!(et_email.getText().toString().equals("") || et_password.getText().toString().equals(""))) {
+                    if(email.equals(et_email.getText().toString()) && password.equals(et_password.getText().toString())) {
+                        cdt.cancel();
+                        cdt = null;
+                        connectionValid = false;
+                        et_email.setText("");
+                        et_password.setText("");
+                        Intent intent = new Intent(NFCActivity.this, NFCAfterLoginActivity.class);
+                        startActivity(intent);
+                    }else{
+
+                        Toast.makeText(NFCActivity.this, "mauvais mot de passe ou login", Toast.LENGTH_LONG).show();
+                    }
+                }else{
+                    Toast.makeText(NFCActivity.this, "des champs ne sont pas remplis", Toast.LENGTH_LONG).show();
+                }
+
+            }else{
+                Toast.makeText(NFCActivity.this, "Erreur pas de nfc valide", Toast.LENGTH_LONG).show();
+            }
         });
 
         /* Lorsque l'on clique sur un des boutons, lance l'activité correspondante */
@@ -90,6 +120,28 @@ public class NFCActivity extends AppCompatActivity {
          * In our case this method gets called, when the user attaches a Tag to the device.
          */
         handleIntent(intent);
+    }
+
+    public void countDown(){
+
+
+        if(cdt != null){
+
+            cdt.cancel();
+            cdt = null;
+        }
+        Toast.makeText(NFCActivity.this, "NFC détecté", Toast.LENGTH_LONG).show();
+        cdt = new CountDownTimer(30000, 1000) {
+
+            public void onTick(long millisUntilFinished) {
+                connectionValid = true;
+            }
+
+            public void onFinish() {
+                connectionValid = false;
+            }
+        }.start();
+
     }
 
     private void handleIntent(Intent intent) {
@@ -148,6 +200,6 @@ public class NFCActivity extends AppCompatActivity {
         adapter.disableForegroundDispatch(activity);
 
 
-
     }
+
 }
