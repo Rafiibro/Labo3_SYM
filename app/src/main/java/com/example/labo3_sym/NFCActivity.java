@@ -152,7 +152,13 @@ public class NFCActivity extends AppCompatActivity {
             if (MIME_TEXT_PLAIN.equals(type)) {
 
                 Tag tag = intent.getParcelableExtra(NfcAdapter.EXTRA_TAG);
-                new NdefReaderTask(this).execute(tag);
+                new NdefReaderTask(
+                        new NFCListener() {
+                            public void handleNfcResponse() {
+                                countDown();
+                            }
+                        }
+                ).execute(tag);
 
             } else {
                 Log.d(TAG, "Wrong mime type: " + type);
@@ -166,7 +172,13 @@ public class NFCActivity extends AppCompatActivity {
 
             for (String tech : techList) {
                 if (searchedTech.equals(tech)) {
-                    new NdefReaderTask(this).execute(tag);
+                    new NdefReaderTask(
+                            new NFCListener() {
+                                public void handleNfcResponse() {
+                                    countDown();
+                                }
+                            }
+                    ).execute(tag);
                     break;
                 }
             }

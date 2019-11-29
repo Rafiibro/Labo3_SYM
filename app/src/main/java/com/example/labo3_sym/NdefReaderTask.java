@@ -80,7 +80,7 @@ class NdefReaderTask extends AsyncTask<Tag, Void, String> {
     protected void onPostExecute(String result) {
         if (result != null) {
             if(result.equals("test")) {
-                parent.countDown();
+                listener.handleNfcResponse();
             }
         }
     }
