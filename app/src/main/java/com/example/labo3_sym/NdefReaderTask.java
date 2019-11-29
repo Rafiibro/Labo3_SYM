@@ -21,11 +21,11 @@ import static com.example.labo3_sym.NFCActivity.TAG;
  */
 class NdefReaderTask extends AsyncTask<Tag, Void, String> {
 
-    private NFCActivity parent;
+    private NFCListener listener;
 
-    public NdefReaderTask(NFCActivity parent){
+    public NdefReaderTask(NFCListener listener){
         super();
-        this.parent = parent;
+        this.listener = listener;
     }
 
     @Override
